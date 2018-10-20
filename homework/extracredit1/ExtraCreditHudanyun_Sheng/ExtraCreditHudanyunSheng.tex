@@ -1,0 +1,51 @@
+\documentclass[a4paper]{article}
+\linespread{1.6}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}  
+\newfloatcommand{capbtabbox}{table}[][\FBwidth] 
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{listings}
+
+
+\usepackage{algpseudocode}
+\geometry{left=1.2cm,right=1.2cm,top=2.5cm,bottom=2.5cm}
+
+\floatname{algorithm}{Algorithm}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\begin{document}
+\begin{spacing}{2.0}
+\begin{flushleft}\begin{huge}EEE6512 Image Processing and Computer Vision   Extra Credit\end{huge}\end{flushleft}
+\begin{flushright}\begin{Large} Hudanyun Sheng \end{Large}\end{flushright}
+
+\section*{\huge\textbf{ Part \uppercase\expandafter{\romannumeral1} Textbook Questions}  }
+	\normalsize
+
+	\textbf{4-19} What is the Euler number of each of the following shapes? Verify your results using the Poincaré formula of Equation (4.165)?\\
+	
+	\noindent
+	\textbf{4-26} The floodfill algorithm as presented in Algorithm 4.5 performs essentially a depth- first search of the space due to its use of a stack data structure. If a queue is used instead, then the algorithm will perform a breadth-first search. If the algorithm is modified to look not for identically colored pixels, but rather similarly colored pixels, then explain why a breadth-first search would be preferable.
+	
+	\noindent
+	\textbf{5-44} Compute the a) grayscale dilation and grayscale erosion of the 5 3 5 image shown in the previous question, using a 3 3 3 flat SE consisting of all zeros (the grayscale version of B8). Then compute b) the grayscale closing and opening, and c) the white top-hat and black top-hat transforms. Handle borders with reflection.horizontal 31 0 214 and vertical 31 0 214 k
+	
+	\noindent
+	\textbf{5-45}
+	
+	\noindent
+	\textbf{6-10}
+	
+\end{spacing}
+\end{document}

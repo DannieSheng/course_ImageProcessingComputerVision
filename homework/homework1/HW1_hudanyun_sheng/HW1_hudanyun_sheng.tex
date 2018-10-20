@@ -1,0 +1,111 @@
+\documentclass[a4paper]{article}
+\linespread{1.6}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[pdftex]{graphicx}
+\geometry{left=1cm,right=1.5cm,top=2.5cm,bottom=2.5cm}
+
+\begin{document}
+\begin{spacing}{2.0}
+\begin{flushleft}\begin{huge}EEE6512  Image Processing and Computer Vision   Homework 1\end{huge}\end{flushleft}
+\begin{flushright}\begin{Large} Hudanyun Sheng \end{Large}\end{flushright}
+\huge{Part \uppercase\expandafter{\romannumeral1} Textbook Questions}\\
+\normalsize
+	1-4 Image processing, as defined in this book, produced an output image from an input image. What are the two primary purposes for such output images?\\
+	
+	      The output images can (1) be displayed to human after image processing such as enhancement or restoration, (2) be used as the input of the later image processing or computer vision algorithms.\\
+	      
+	1-8 Explain the statement, "Computer vision is the inverse of computer graphics".\\
+	
+	      Computer graphics are pictures created using computer. It is a method to visualize data to make them "visible" to human. While computer vision means to make computers to be able to "see" the graphs which is visible to human. Those above make it obvious that computer vision is the inverse of computer graphics.\\
+	      
+	1-16 Suppose an image has 640 columns and 480 rows and is stored in row-major order. Convert the coordinates $(x,y) = (38,52)$, $(592, 241)$, and $(33,0)$ to 1D indices. Conversely, convert the following 1D indices to $(x,y)$ coordinates: $i = 8092$, $24061$ and $38190$.\\
+		Convert 2D indices to 1D indices: $i = y \times width + x$\\
+		$(38,52)$: $i = 52 \times 640 + 38 = 33318$.\\
+		$(592, 241)$: $i = 241 \times 640 + 592 = 154832$.\\
+		$(33,0)$: $i = 0 \times 640 + 33 = 33$.\\
+		Convert 1D indices to $(x,y)$ coordinates: $x = mod(i, width) = i - y \times width$, $y = \left \lfloor i/width\right \rfloor$.\\
+		$i = 8092$: $y = \left \lfloor 8092/640\right \rfloor = 12$, $x = 8092 - 12 \times 640 = 412$. $(412, 12)$\\
+		$i = 24061$: $y = \left\lfloor 24061/640 \right \rfloor = 37$, $x = 24061 - 37 \times 640 = 381$. $(381, 37)$\\
+		$i = 38190$: $y = \left\lfloor 38190/640 \right \rfloor = 59$, $x = 38190 - 59 \times 640 = 430$. $(430, 59)$\\
+		
+	1-17 Equations (1.3) - (1.5) apply to an image stored in row-major order. Write the equivalent expressions to convert between 2D coordinates and 1D indices for an image stored in column-major order.\\ 
+	 \begin{align}
+	 i = y + x \times height \tag{1.3'}\\
+         y = mod(i, height) = i - x \times height \tag{1.4'}\\
+         x = \left\lfloor i/height \right \rfloor \tag{1.5'}
+	 \end{align}
+	
+	
+	1-18 Suppose the following 1D array of bytes in memory stores a $2\times 2$ color image(in blue-green-red order): 52, 68, 31 133, 192, 88, 255, 208, 32, 233, 161, 25. 
+	\begin{enumerate}
+	\item[a.] Assuming that the image is stored in interleaved format, convert to planar format. What are the RGB values of the pixel at location $(1, 1)$?
+	\item[b.] Assuming that the image is stored in planar format, convert to interleaved format. What are the RGB values of the pixel at location $(0, 1)$?
+	\end{enumerate}
+	Solution:
+	\begin{enumerate}
+	\item[a. ] 
+	Interleved format:
+	 $$\left [ \begin{matrix}
+	(52, 68, 31) & (133, 192, 88)\\
+	(255, 208, 32) & (233, 161, 25)
+	\end{matrix} \right ]$$
+	Planar format:\\
+	blue:
+	$$\left [ \begin{matrix}
+	52 & 133 \\
+	255 & 233
+	\end{matrix} \right ]$$
+	green:
+	$$\left [ \begin{matrix}
+	68 & 192 \\
+	208 & 161
+	\end{matrix} \right ]$$
+	red:
+	$$\left [ \begin{matrix}
+	31 & 88 \\
+	32 & 25
+	\end{matrix} \right ]$$
+	
+
+	The R value of the pixel at location $(1,1)$ is 25, the G value of the pixel is 161, the B value of the pixel is 233.\\
+						
+	\item[b. ]
+	Planar format: \\
+	blue: 
+	$$\left [ \begin{matrix}
+	52 & 68\\
+	31 & 133
+	\end{matrix} \right ]$$
+	
+	green: 
+	$$\left [ \begin{matrix}
+	192 & 88\\
+	255 & 208
+	\end{matrix} \right ]$$
+	
+	red: 
+	$$\left [ \begin{matrix}
+	32 & 233\\
+	161 & 25
+	\end{matrix} \right ]$$
+	
+	Interleved formet: 
+	 $$\left [ \begin{matrix}
+	(52, 192, 32) & (68, 88, 233)\\
+	(31, 255, 161) & (133, 208, 25)
+	\end{matrix} \right ]$$
+	
+	The R value of the pixel at location $(0,1)$ is 161, the G value of the pixel is 255, the B value of the pixel is 31.\\
+	\end{enumerate}
+
+
+\huge{Part \uppercase\expandafter{\romannumeral2} MATLAB Programming}\\
+\normalsize
+The .m file is a MATLAB function, named "flipim.m". It takes the matrix of the image as the input, and perform the disired "flip", with both the original image and image after processing shown.
+	
+
+\end{spacing}
+\end{document}
